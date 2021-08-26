@@ -1,0 +1,70 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Weekly Stats
+{% endblock %}
+
+{% block home-active %}{% endblock home-active %}
+{% block weeklyStats-active %}active{% endblock weeklyStats-active %}
+{% block teams-active %}{% endblock teams-active %}
+{% block draft-active %}{% endblock draft-active %}
+{% block about-active %}{% endblock about-active %}
+
+{% block content %}
+<h1 style="text-align: center">Weekly Statistics</h1>
+<div id="button-wrapper">
+    {% if 17 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week17">Week 17</a>
+    {% endif %}
+    {% if 16 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week16">Week 16</a>
+    {% endif %}
+    {% if 15 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week15">Week 15</a>
+    {% endif %}
+    {% if 14 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week14">Week 14</a>
+    {% endif %}
+    {% if 13 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week13">Week 13</a>
+    {% endif %}
+    {% if 12 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week12">Week 12</a>
+    {% endif %}
+    {% if 11 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week11">Week 11</a>
+    {% endif %}
+    {% if 10 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week10">Week 10</a>
+    {% endif %}
+    {% if 9 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week9">Week 9</a>
+    {% endif %}
+    {% if 8 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week8">Week 8</a>
+    {% endif %}
+    {% if 7 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week7">Week 7</a>
+    {% endif %}
+    {% if 6 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week6">Week 6</a>
+    {% endif %}
+    {% if 5 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week5">Week 5</a>
+    {% endif %}
+    {% if 4 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week4">Week 4</a>
+    {% endif %}
+    {% if 3 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week3">Week 3</a>
+    {% endif %}
+    {% if 2 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week2">Week 2</a>
+    {% endif %}
+    {% if 1 <= current_week %}
+        <a class="btn btn-outline-primary" href="/weeklyStats/week1">Week 1</a>
+    {% endif %}
+</div>
+
+{% endblock content %}
+

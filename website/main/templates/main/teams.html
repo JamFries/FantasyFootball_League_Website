@@ -1,0 +1,92 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Teams
+{% endblock %}
+
+{% block home-active %}{% endblock home-active %}
+{% block weeklyStats-active %}{% endblock weeklyStats-active %}
+{% block teams-active %}active{% endblock teams-active %}
+{% block draft-active %}{% endblock draft-active %}
+{% block about-active %}{% endblock about-active %}
+
+{% block content %}
+<h1 style="text-align: center">Teams</h1>
+
+<body>
+    {% for team in teams %}
+        <h2>
+            <img src="{{team.logo_url}}" width="64px" height="64px">{{ team.team_name }}
+        </h2>
+        <p>Owner: {{ team.owner }}</p>
+        <p>Record: {{ team.wins }} - {{team.losses}} - {{team.ties}}</p>
+        <p>Points For: {{ team.points_for }}</p>
+        <p>Points Against: {{ team.points_against }}</p>
+        <h4>Roster</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Position</th>
+                    <th>Position Rank</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in team.roster %}
+                    <tr>
+                        <td>
+                            {{player.name}}
+                            <button type="button" class="btn" data-toggle="modal" data-target="#playerModal{{player.playerId}}">
+                                <i class="far fa-file-alt"></i>
+                            </button>
+                            <div class="modal fade" id="playerModal{{player.playerId}}" tabIndex="-1" role="dialog" aria-labelledby="playerModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="playerModalLabel">Player Info</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h6>{{player.name}} - {{player.proTeam}}</h6>
+                                            <p>{{player.position}}</p>
+                                            <p>{{player.injuryStatus}}</p>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Week</th>
+                                                        <th>Points</th>
+                                                        <th>Projected Points</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for week in player.stats %}
+                                                        <tr>
+                                                            <td>{{week}}</td>
+                                                            <td>{{week.points}}</td>
+                                                            <td>{{week.projected_points}}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{player.position}}</td>
+                        <td>{{player.posRank}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <hr>
+    {% endfor %}
+
+</body>
+
+{% endblock %}

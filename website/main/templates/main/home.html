@@ -1,0 +1,207 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block home-active %}active{% endblock home-active %}
+{% block weeklyStats-active %}{% endblock weeklyStats-active %}
+{% block teams-active %}{% endblock teams-active %}
+{% block draft-active %}{% endblock draft-active %}
+{% block about-active %}{% endblock about-active %}
+
+{% block css-style %}
+<style>
+    .col-md-1 {
+        max-width: 17%;
+    }
+    .col-md-2 {
+        text-align: center;
+    }
+    .col-md-3 {
+        text-align: right;
+    }
+</style>
+{% endblock css-style %}
+
+{% block content %}
+<h1 style="text-align: center">Week {{current_week}} Overview</h1>
+
+<body>
+<div class="home-boxScores">
+    {% for game in games_currentWeek %}
+        <div id="table-wrapper">
+            <table class="table table-striped">
+                <caption style="caption-side: top; text-align: center">
+                    {{game.home_team.team_name}} vs. {{game.away_team.team_name}}
+                    <br>
+                    {{game.home_score}} - {{game.away_score}}
+                </caption>
+                <tr>
+                    <td>
+                        <div class="col-xs-6">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="home-team">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="col-md-1">Pos</th>
+                                            <th scope="col" class="col-md-2">Player</th>
+                                            <th scope="col" class="col-md-3">Home Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for playerHome in game.home_lineup %}
+                                            {% if playerHome.slot_position == 'QB' %}
+                                                <tr>
+                                                    <td class="col-md-1">QB</td>
+                                                    <td class="col-md-2">{{ playerHome.name }}</td>
+                                                    <td class="col-md-3">{{ playerHome.points }}</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerHome in game.home_lineup %}
+                                            {% if playerHome.slot_position == 'RB' %}
+                                                <tr>
+                                                    <td class="col-md-1">RB</td>
+                                                    <td class="col-md-2">{{ playerHome.name }}</td>
+                                                    <td class="col-md-3">{{ playerHome.points }}</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerHome in game.home_lineup %}
+                                            {% if playerHome.slot_position == 'WR' %}
+                                                <tr>
+                                                    <td class="col-md-1">WR</td>
+                                                    <td class="col-md-2">{{ playerHome.name }}</td>
+                                                    <td class="col-md-3">{{ playerHome.points }}</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerHome in game.home_lineup %}
+                                            {% if playerHome.slot_position == 'TE' %}
+                                                <tr>
+                                                    <td class="col-md-1">TE</td>
+                                                    <td class="col-md-2">{{ playerHome.name }}</td>
+                                                    <td class="col-md-3">{{ playerHome.points }}</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerHome in game.home_lineup %}
+                                            {% if playerHome.slot_position == 'FLEX' %}
+                                                <tr>
+                                                    <td class="col-md-1">FLEX</td>
+                                                    <td class="col-md-2">{{ playerHome.name }}</td>
+                                                    <td class="col-md-3">{{ playerHome.points }}</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerHome in game.home_lineup %}
+                                            {% if playerHome.slot_position == 'D/ST' %}
+                                                <tr>
+                                                    <td class="col-md-1">D/ST</td>
+                                                    <td class="col-md-2">{{ playerHome.name }}</td>
+                                                    <td class="col-md-3">{{ playerHome.points }}</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerHome in game.home_lineup %}
+                                            {% if playerHome.slot_position == 'K' %}
+                                                <tr>
+                                                    <td class="col-md-1">K</td>
+                                                    <td class="col-md-2">{{ playerHome.name }}</td>
+                                                    <td class="col-md-3">{{ playerHome.points }}</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-xs-6">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="away-team">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" class="col-md-1">Away Score</th>
+                                            <th scope="col" class="col-md-2">Player</th>
+                                            <th scope="col" class="col-md-3">Pos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for playerAway in game.away_lineup %}
+                                            {% if playerAway.slot_position == 'QB' %}
+                                                <tr>
+                                                    <td class="col-md-1">{{ playerAway.points }}</td>
+                                                    <td class="col-md-2">{{ playerAway.name }}</td>
+                                                    <td class="col-md-3">QB</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerAway in game.away_lineup %}
+                                            {% if playerAway.slot_position == 'RB' %}
+                                                <tr>
+                                                    <td class="col-md-1">{{ playerAway.points }}</td>
+                                                    <td class="col-md-2">{{ playerAway.name }}</td>
+                                                    <td class="col-md-3">RB</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerAway in game.away_lineup %}
+                                            {% if playerAway.slot_position == 'WR' %}
+                                                <tr>
+                                                    <td class="col-md-1">{{ playerAway.points }}</td>
+                                                    <td class="col-md-2">{{ playerAway.name }}</td>
+                                                    <td class="col-md-3">WR</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerAway in game.away_lineup %}
+                                            {% if playerAway.slot_position == 'TE' %}
+                                                <tr>
+                                                    <td class="col-md-1">{{ playerAway.points }}</td>
+                                                    <td class="col-md-2">{{ playerAway.name }}</td>
+                                                    <td class="col-md-3">TE</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerAway in game.away_lineup %}
+                                            {% if playerAway.slot_position == 'FLEX' %}
+                                                <tr>
+                                                    <td class="col-md-1">{{ playerAway.points }}</td>
+                                                    <td class="col-md-2">{{ playerAway.name }}</td>
+                                                    <td class="col-md-3">FLEX</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerAway in game.away_lineup %}
+                                            {% if playerAway.slot_position == 'D/ST' %}
+                                                <tr>
+                                                    <td class="col-md-1">{{ playerAway.points }}</td>
+                                                    <td class="col-md-2">{{ playerAway.name }}</td>
+                                                    <td class="col-md-3">D/ST</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        {% for playerAway in game.away_lineup %}
+                                            {% if playerAway.slot_position == 'K' %}
+                                                <tr>
+                                                    <td class="col-md-1">{{ playerAway.points }}</td>
+                                                    <td class="col-md-2">{{ playerAway.name }}</td>
+                                                    <td class="col-md-3">K</td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    {% endfor %}
+</div>
+</body>
+{% endblock %}

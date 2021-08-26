@@ -1,0 +1,25 @@
+{% extends 'main/week.html' %}
+
+{% block weekNum_title %}8{% endblock %}
+{% block weekNum_navbar %}8{% endblock %}
+{% block weekNum_awards %}8{% endblock %}
+{% block weekNum_activity %}8{% endblock %}
+
+{% block powerRankings_change %}
+{% for score_prev, team_prev in power_rankings_previousWeek %}
+    {% if team.team_name == team_prev.team_name %}
+        {% if score > score_prev %}
+            ↑
+        {% elif score < score_prev %}
+            ↓
+        {% else %}
+            -
+        {% endif %}
+    {% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block navbar_prevWeek_href %}7{% endblock %}
+{% block navbar_prevWeek_text %}7{% endblock %}
+{% block navbar_nextWeek_href %}9{% endblock %}
+{% block navbar_nextWeek_text %}9{% endblock %}

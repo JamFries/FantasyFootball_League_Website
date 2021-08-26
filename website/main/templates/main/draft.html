@@ -1,0 +1,337 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Draft
+{% endblock %}
+
+{% block home-active %}{% endblock home-active %}
+{% block weeklyStats-active %}{% endblock weeklyStats-active %}
+{% block teams-active %}{% endblock teams-active %}
+{% block draft-active %}active{% endblock draft-active %}
+{% block about-active %}{% endblock about-active %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Draft</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#round-1">Round 1</a>
+          </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#round-2">Round 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#round-3">Round 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#round-4">Round 4</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#round-5">Round 5</a>
+          </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#round-6">Round 6</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#round-7">Round 7</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#round-8">Round 8</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#round-9">Round 9</a>
+          </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#round-10">Round 10</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#round-11">Round 11</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#round-12">Round 12</a>
+          </li>
+        </ul>
+  </div>
+</nav>
+
+<body>
+<div id="round-1">
+    <h2>Round 1</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round1 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-2">
+    <h2>Round 2</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round2 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-3">
+    <h2>Round 3</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round3 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-4">
+    <h2>Round 4</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round4 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-5">
+    <h2>Round 5</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round5 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-6">
+    <h2>Round 6</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round6 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-7">
+    <h2>Round 7</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round7 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-8">
+    <h2>Round 8</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round8 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-9">
+    <h2>Round 9</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round9 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-10">
+    <h2>Round 10</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round10 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-11">
+    <h2>Round 11</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round11 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div id="round-12">
+    <h2>Round 12</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pick</th>
+                <th>Player</th>
+                <th style="text-align: right">Team</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pick in draft_round12 %}
+                <tr>
+                    <td>{{pick.round_pick}}</td>
+                    <td>{{pick.playerName}}</td>
+                    <td style="text-align: right">{{pick.team.team_name}}</td>
+                    <td><img src="{{pick.team.logo_url}}" width="32px" height="32px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+
+{% endblock %}

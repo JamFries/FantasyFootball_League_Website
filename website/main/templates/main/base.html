@@ -1,0 +1,102 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+    <title>Grandma Oil V3. - {% block title %}{% endblock %}</title>
+
+    <div class="header-links">
+        <a class="{% block home-active %}{% endblock home-active %}" href="/">Home</a>
+        <a class="{% block weeklyStats-active %}{% endblock weeklyStats-active %}" href="/weeklyStats">Weekly Stats</a>
+        <a class="{% block teams-active %}{% endblock teams-active %}" href="/teams">Teams</a>
+        <a class="{% block draft-active %}{% endblock draft-active %}" href="/draft">Draft</a>
+        <a class="{% block about-active %}{% endblock about-active %}" href="/about">About</a>
+
+        <h2 style="text-align: right;">Grandma Oil V3.</h2>
+    </div>
+
+    <style>
+        .header-links {
+            overflow: hidden;
+            background-color: #220C10;
+        }
+        .header-links a {
+            float: left;
+            color: #AAA;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .header-links a:hover {
+            background-color: #5b6579;
+            color: white;
+        }
+        .header-links a.active {
+            background-color: #2f2963;
+            color: white;
+        }
+        .content {
+            max-width: 960px;
+            margin: auto;
+        }
+        #jumpToTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: dimgrey;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        #jumpToTop:hover {
+            background-color: grey;
+        }
+
+    </style>
+{% block css-style %} {% endblock css-style %}
+
+</head>
+<body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <button onclick="topFunction()" id="jumpToTop" title="Go to top">↑</button>
+    <script>
+        var button = document.getElementById("jumpToTop");
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                button.style.display = "block";
+            }
+            else {
+                button.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+    <div id="content" class="content" name="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
