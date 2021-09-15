@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Profile {% endblock %}
+
+{% block home-active %}{% endblock home-active %}
+{% block weeklyStats-active %}{% endblock weeklyStats-active %}
+{% block teams-active %}{% endblock teams-active %}
+{% block draft-active %}{% endblock draft-active %}
+{% block about-active %}{% endblock about-active %}
+
+{% block content %}
+    <h1>{{ user.username }}</h1>
+{% endblock content %}
