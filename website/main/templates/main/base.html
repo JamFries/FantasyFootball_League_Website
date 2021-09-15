@@ -16,7 +16,15 @@
         <a class="{% block draft-active %}{% endblock draft-active %}" href="/draft">Draft</a>
         <a class="{% block about-active %}{% endblock about-active %}" href="/about">About</a>
 
-        <h2 style="text-align: right;">Grandma Oil V3.</h2>
+        <div class="header-links-account">
+            {% if user.is_authenticated %}
+                <a class="{% block logout-active %}{% endblock logout-active %}" href="{% url 'logout' %}">Logout</a>
+                <a class="{% block profile-active %}{% endblock profile-active %}" href="{% url 'profile' %}">Profile</a>
+            {% else %}
+                <a class="{% block login-active %}{% endblock login-active %}" href="{% url 'login' %}">Login</a>
+                <a class="{% block register-active %}{% endblock register-active %}" href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </div>
     </div>
 
     <style>
@@ -40,6 +48,16 @@
             background-color: #2f2963;
             color: white;
         }
+
+        .header-links-account a {
+            float: right;
+            color: #AAA;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
         .content {
             max-width: 960px;
             margin: auto;
@@ -95,6 +113,14 @@
     </script>
 
     <div id="content" class="content" name="content">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
         {% block content %}
         {% endblock %}
     </div>

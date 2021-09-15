@@ -23,7 +23,6 @@ player_data = pd.read_csv('C:/Users/jtfra/PycharmProjects/FantasyFootball_League
 # Its helps determine value due to position scarcity as opposed to overall number of fantasy points, which would just be QBs
 # The cons of it being it ignores ADP of players when calculating value which can make it hard to draft big-value guys without reaching if you just follow this
 
-
 # print(player_data['Player'])
 # Cleanup the player name column
 for index, row_series in player_data.iterrows():
@@ -37,9 +36,9 @@ for index, row_series in player_data.iterrows():
 
 
 # print(player_data.loc[(player_data["FantPos"] == "RB") & (player_data["FantasyVBD"] > 0)])
-runningbacks_vbd = player_data.loc[(player_data["FantPos"] == "RB") & (player_data["FantasyVBD"] > 0)]
-for index, row_series in runningbacks_vbd.iterrows():
-    print("Player: "+ str(row_series["Player"]) + " | VBD: " + str(row_series['FantasyVBD']))
+# runningbacks_vbd = player_data.loc[(player_data["FantPos"] == "RB") & (player_data["FantasyVBD"] > 0)]
+# for index, row_series in runningbacks_vbd.iterrows():
+#     print("Player: "+ str(row_series["Player"]) + " | VBD: " + str(row_series['FantasyVBD']))
 
 # print(runningbacks_vbd["Player"] + "VBD: " + str(runningbacks_vbd["FantasyVBD"]))
 
@@ -51,6 +50,12 @@ for index, row_series in runningbacks_vbd.iterrows():
 
 league = League(league_id=login['league_id'][0], year=login['year'][0], espn_s2=login['espn_s2'][0], swid=login['swid'][0])
 print(league)
+
+# # Save ActivityList_week1_2021 for testing purposes
+# activity_week1 = league.recent_activity(500)
+# # print(activity_week1)
+# df = pd.DataFrame(activity_week1, columns=["activity"])
+# df.to_csv('activityList_week1_2021.csv', index=False)
 
 # Get boxscores for the most recent week (for the home page)
 boxScores_currentWeek = league.box_scores(league.current_week)
